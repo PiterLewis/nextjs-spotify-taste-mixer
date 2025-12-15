@@ -363,7 +363,15 @@ export default function Dashboard() {
                                         onClick={() => handlePreview(track)}
                                         className={`absolute inset-0 bg-black/40 flex items-center justify-center rounded-xl transition-opacity ${playingTrackId === track.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                                     >
-                                        {playingTrackId === track.id ? '⏸️' : '▶️'}
+                                        {playingTrackId === track.id ? (
+                                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                                            </svg>
+                                        ) : (
+                                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        )}
                                     </button>
                                 </div>
                                 <div className="flex-1 min-w-0">
@@ -378,13 +386,17 @@ export default function Dashboard() {
                                         className={`p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors ${favorites.some(f => f.id === track.id) ? 'text-[#1DB954]' : 'text-gray-400'
                                             }`}
                                     >
-                                        ♥
+                                        <svg className="w-5 h-5" fill={favorites.some(f => f.id === track.id) ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg>
                                     </button>
                                     <button
                                         onClick={() => removeTrack(track.id)}
                                         className="p-2 rounded-full hover:bg-red-100 dark:hover:bg-red-900/30 text-gray-400 hover:text-red-500 transition-colors"
                                     >
-                                        ✕
+                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
                                     </button>
                                 </div>
                             </div>
@@ -403,7 +415,9 @@ export default function Dashboard() {
                                 onClick={() => setIsSearchOpen(false)}
                                 className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition-colors"
                             >
-                                ✕
+                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
                             </button>
                         </div>
 
@@ -417,7 +431,11 @@ export default function Dashboard() {
                                     className="w-full px-4 py-3 pl-10 rounded-xl bg-gray-100 dark:bg-white/5 border-none focus:ring-2 focus:ring-green-500 outline-none transition-all"
                                     autoFocus
                                 />
-                                <span className="absolute left-3 top-3.5 text-gray-400">🔍</span>
+                                <span className="absolute left-3 top-3.5 text-gray-400">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </span>
                                 {isSearching && (
                                     <div className="absolute right-3 top-3.5 animate-spin h-4 w-4 border-2 border-gray-400 border-t-transparent rounded-full"></div>
                                 )}
@@ -454,7 +472,11 @@ export default function Dashboard() {
                                                     ADDED
                                                 </span>
                                             ) : (
-                                                <span className="text-green-500 opacity-0 group-hover:opacity-100 transition-opacity font-bold text-xl">+</span>
+                                                <span className="text-green-500 opacity-0 group-hover:opacity-100 transition-opacity font-bold text-xl">
+                                                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                                                    </svg>
+                                                </span>
                                             )}
                                         </button>
                                     );
@@ -466,10 +488,11 @@ export default function Dashboard() {
                             )}
                         </div>
                     </div>
-                </div>
-            )}
+                </div >
+            )
+            }
 
 
-        </main>
+        </main >
     );
 }

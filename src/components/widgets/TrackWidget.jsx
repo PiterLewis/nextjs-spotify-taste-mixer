@@ -99,7 +99,11 @@ export default function TrackWidget({ selectedTracks = [], onTrackSelect }) {
                                     <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{track.artists[0].name}</p>
                                 </div>
                                 {selectedTracks.find(t => t.id === track.id) && (
-                                    <span className="text-green-500">✓</span>
+                                    <span className="text-green-500">
+                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
                                 )}
                             </button>
                         ))}
@@ -139,7 +143,9 @@ export default function TrackWidget({ selectedTracks = [], onTrackSelect }) {
                             onClick={() => handleSelect(track)}
                             className="w-6 h-6 rounded-full flex items-center justify-center text-gray-400 hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-500/20 transition-colors"
                         >
-                            ×
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
                         </button>
                     </div>
                 ))}

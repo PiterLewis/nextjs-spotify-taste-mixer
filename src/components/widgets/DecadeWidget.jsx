@@ -42,29 +42,43 @@ export default function DecadeWidget({ selectedDecade, onDecadeSelect }) {
             </div>
 
             {isOpen && (
-                <>
-                    <div
-                        className="fixed inset-0 z-10"
-                        onClick={() => setIsOpen(false)}
-                    ></div>
-                    <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-200 dark:border-white/10 z-20 overflow-hidden max-h-60 overflow-y-auto">
-                        {DECADES.map(decade => (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
+                    <div className="bg-white dark:bg-gray-900 rounded-3xl w-full max-w-sm shadow-2xl border border-gray-200 dark:border-white/10 animate-in zoom-in-95 duration-200 overflow-hidden">
+                        <div className="p-4 border-b border-gray-200 dark:border-white/10 flex items-center justify-between bg-gray-50/50 dark:bg-white/5">
+                            <h3 className="text-lg font-bold">Select Decade</h3>
                             <button
-                                key={decade.value}
-                                onClick={() => {
-                                    onDecadeSelect(decade.value);
-                                    setIsOpen(false);
-                                }}
-                                className={`w-full px-4 py-3 text-left text-sm font-medium transition-colors hover:bg-gray-50 dark:hover:bg-white/10 ${selectedDecade === decade.value
-                                    ? 'bg-blue-50 dark:bg-blue-500/20 text-blue-600 dark:text-blue-300'
-                                    : 'text-gray-700 dark:text-gray-300'
-                                    }`}
+                                onClick={() => setIsOpen(false)}
+                                className="p-2 hover:bg-gray-200 dark:hover:bg-white/10 rounded-full transition-colors"
                             >
-                                {decade.label}
+                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
                             </button>
-                        ))}
+                        </div>
+                        <div className="p-4 space-y-2 max-h-[60vh] overflow-y-auto custom-scrollbar">
+                            {DECADES.map(decade => (
+                                <button
+                                    key={decade.value}
+                                    onClick={() => {
+                                        onDecadeSelect(decade.value);
+                                        setIsOpen(false);
+                                    }}
+                                    className={`w-full px-4 py-4 text-left text-sm font-medium transition-all rounded-xl flex items-center justify-between ${selectedDecade === decade.value
+                                        ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25 scale-105'
+                                        : 'bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 text-gray-700 dark:text-gray-300'
+                                        }`}
+                                >
+                                    <span className="font-bold text-lg">{decade.label}</span>
+                                    {selectedDecade === decade.value && (
+                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    )}
+                                </button>
+                            ))}
+                        </div>
                     </div>
-                </>
+                </div>
             )}
         </div>
     );
