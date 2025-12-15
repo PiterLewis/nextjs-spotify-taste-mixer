@@ -59,7 +59,7 @@ export default function TrackWidget({ selectedTracks = [], onTrackSelect }) {
                             </linearGradient>
                         </defs>
                     </svg>
-                    Añade tus favoritas
+                    Add your favorites
                 </h3>
                 <span className="text-xs font-medium px-2 py-1 rounded-full bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400">
                     {selectedTracks.length}/5
@@ -71,7 +71,7 @@ export default function TrackWidget({ selectedTracks = [], onTrackSelect }) {
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="busca canciones..."
+                    placeholder="Search songs..."
                     className="w-full bg-white/50 dark:bg-white/5 border-none rounded-xl px-4 py-3 pl-10 focus:outline-none focus:ring-2 focus:ring-[#1DB954] transition-all placeholder:text-gray-400"
                 />
 
