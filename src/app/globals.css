@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --spacing-header-mb: clamp(4rem, 4vh, 2rem);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --animate-fade-in: fadeIn 2s ease-out 0.3s both;
+  --color-spotify-green: #1DB954;
+  --color-spotify-black: #191414;
+  --color-spotify-dark: #121212;
+  --color-spotify-light: #282828;
+  --animate-float-clouds: float-clouds 60s linear infinite;
+}
+
+@utility text-header {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-clouds {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Esto es default  */
+:root {
+  --background: #ffffff;
+  --foreground: #121212;
+}
+
+:root.dark {
+  --background: #121212;
+  --foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
+.custom-scrollbar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+ 
+}
