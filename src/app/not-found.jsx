@@ -12,9 +12,7 @@ export default function NotFound() {
                 <div className="mb-8 flex justify-center relative">
                     <div className="absolute inset-0 bg-green-500/20 blur-xl rounded-full"></div>
                     <div className="w-32 h-32 bg-[#121212] rounded-full flex items-center justify-center border border-white/10 relative z-10 shadow-xl group">
-                        <svg className="w-16 h-16 text-gray-500 group-hover:text-[#1DB954] transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-                        </svg>
+                        <img src="/mimagocutre.svg" alt="Wizard" className="w-20 h-20 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300" />
                     </div>
                 </div>
 
